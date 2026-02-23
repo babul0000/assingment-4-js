@@ -114,7 +114,7 @@ function updateJobStatus(card, cardStatus) {
     if (cardStatus === 'interview') {
         interviews.push(job);
         
-        if (activeFilter === 'all') card.remove();
+        // if (activeFilter === 'all') card.remove();
         
         interviewBtn.classList.add('bg-[#10B981]', 'text-white');
         rejectedBtn.classList.remove('bg-[#EF4444]', 'text-white');
@@ -122,7 +122,7 @@ function updateJobStatus(card, cardStatus) {
 
     if (cardStatus === 'rejected') {
         rejected.push(job);
-        if (activeFilter === 'all') card.remove();
+        // if (activeFilter === 'all') card.remove();
 
         rejectedBtn.classList.add('bg-[#EF4444]', 'text-white');
         interviewBtn.classList.remove('bg-[#10B981]', 'text-white');
@@ -178,9 +178,10 @@ function deleteJob(card) {
 
 function updateCounts() {
     let currentMainCards = allCardSection.querySelectorAll('.card').length;
-    jobsLength = currentMainCards + interviews.length + rejected.length;
+    // jobsLength = currentMainCards + interviews.length + rejected.length;
 
-    total.innerText = jobsLength;
+    // total.innerText = jobsLength;
+    total.innerText = currentMainCards;
     interviewCount.innerText = interviews.length;
     rejectedCount.innerText = rejected.length;
     

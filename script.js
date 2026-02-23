@@ -9,7 +9,7 @@ let totalCardNumber = document.getElementById('total-card-number');
 let interviewCardNumber = document.getElementById('interview-card-number');
 let RejectedCardNumber = document.getElementById('Rejected-card-number');
 
-// all head btn
+// all head btn 
 const allFilterCard = document.getElementById('all-btn-card');
 const InterviewFilterCard = document.getElementById('Interview-btn-card');
 const RejectedFilterCard = document.getElementById('rejected-btn-card');
@@ -221,3 +221,27 @@ function renderRejected (){
         filterSection.appendChild(div)
     }
 };
+
+
+
+const deleteButton = document.querySelector('delete-btn').addEventListener('click', function(){
+    console.log(deleteButton);
+    
+})
+
+    // delletButton.addEventListener('click', function(event){
+    //     if(event.target.classList.contains('delete-btn')){
+
+    //         // const delletBtn = event.target;
+
+    //         // const card = delletBtn.closest('.card');
+
+    //         // const carDid =card.getAttribute('data-card-id');
+    //         // console.log('delete card', carDid);
+
+    //         // if(card){
+    //         //     card.remove();
+    //         // }
+            
+    //     }
+    // })

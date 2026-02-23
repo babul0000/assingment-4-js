@@ -95,9 +95,6 @@ document.addEventListener('click', function (even) {
 
     if (target.closest('.delete-btn')) {
         deleteJob(card);
-        // nicer ta notun kore add korchi
-        // const cardToDelete = target.closest('.card');  
-        // deleteJob(cardToDelete);
     }
 });
 
@@ -140,8 +137,8 @@ function updateJobStatus(card, cardStatus) {
         if (activeFilter === 'all') 
             card.remove();
 
-        // rejectedBtn.classList.add('bg-[#EF4444]', 'text-white');
-        // interviewBtn.classList.remove('bg-[#10B981]', 'text-white');
+        rejectedBtn.classList.add('bg-[#EF4444]', 'text-white');
+        interviewBtn.classList.remove('bg-[#10B981]', 'text-white');
     }
 
     updateCounts();
@@ -154,7 +151,7 @@ function renderJob(status) {
     let data = (status === 'interview') ? interviews : rejected;
 
     data.forEach(item => {
-        let statusColor = item.status === 'interview' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700';
+        let statusColor = item.status === 'interview' ? 'py-2 bg-green-100 text-green-900' : 'bg-red-100 text-red-900';
         let div = document.createElement('div');
         div.className = 'card space-y-4 shadow-xs rounded-md bg-white p-5 mb-5';
         div.innerHTML = `

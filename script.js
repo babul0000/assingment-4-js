@@ -1,10 +1,10 @@
 
+let interviews = [];
+let rejected = [];
+
 let total = document.getElementById('total-card-number');
 let interviewCount = document.getElementById('interview-card-number');
 let rejectedCount = document.getElementById('Rejected-card-number');
-
-let interviews = [];
-let rejected = [];
 
 // let changBtn = document.querySelector('.chang-btn');
 
@@ -35,16 +35,16 @@ const rejectedFilterBtn = document.getElementById('rejected-btn-card');
 
 function showEmptyCard() {
     const emptyCard = `
-    <div class="empty-card py-10 flex flex-col items-center justify-center bg-gray-300 rounded-lg">
-        <h3 class="text-lg font-semibold">No jobs available</h3>
-        <p class="text-gray-500">Check back soon for new job opportunities</p>
+    <div class="empty-card py-10 flex flex-col items-center justify-center bg-gray-400 rounded-lg">
+        <h3 class="text-lg font-bold">No jobs available</h3>
+        <p class="text-gray-600">Check back soon for new job opportunite</p>
     </div>`;
     filterSection.innerHTML = emptyCard;
 }
 
 let activeFilter = 'all';
 
-
+// toggle section main 3 ta button er bg-color poriborton kora 
 function toggleStyle(id) {
     
     [allFilterBtn, interviewFilterBtn, rejectedFilterBtn].forEach(btn => {
@@ -62,13 +62,17 @@ function toggleStyle(id) {
         activeFilter = 'interview';
         if (interviews.length == 0) showEmptyCard();
         else renderJob('interview');
-    } else if (id == 'rejected-btn-card') {
+    }
+    
+    else if (id == 'rejected-btn-card') {
         allCardSection.classList.add('hidden');
         filterSection.classList.remove('hidden');
         activeFilter = 'rejected';
         if (rejected.length == 0) showEmptyCard();
         else renderJob('rejected');
-    } else {
+    }
+    
+    else {
         activeFilter = 'all';
         allCardSection.classList.remove('hidden');
         filterSection.classList.add('hidden');
@@ -77,7 +81,7 @@ function toggleStyle(id) {
     updateCounts();
 }
 
-
+// aikhane click korle chang hobe
 document.addEventListener('click', function (even) {
     const target = even.target;
     const card = target.closest('.card');
@@ -97,7 +101,7 @@ document.addEventListener('click', function (even) {
         deleteJob(card);
     }
 });
-
+// add and remove 
 function updateJobStatus(card, cardStatus) {
     
     const title = card.querySelector('.plant-name').innerText;
@@ -118,9 +122,7 @@ function updateJobStatus(card, cardStatus) {
     if (cardStatus === 'interview') {
         interviews.push(job);
 
-        // if(statusTextElement) {
-        //     statusTextElement.innerText = 'interview';
-        // }
+        
         
         if (activeFilter === 'all') card.remove();
         
@@ -131,9 +133,7 @@ function updateJobStatus(card, cardStatus) {
     if (cardStatus === 'rejected') {
         rejected.push(job);
 
-        // if(statusTextElement) {
-        //     statusTextElement.innerText = 'rejected';
-        // }
+        
         if (activeFilter === 'all') 
             card.remove();
 
@@ -145,13 +145,14 @@ function updateJobStatus(card, cardStatus) {
     if (activeFilter !== 'all') renderJob(activeFilter);
 }
 
+// akhane new section er jinish gula rakha hocce  interview te click korle jno dynamic vabe add hoy
 
 function renderJob(status) {
     filterSection.innerHTML = '';
     let data = (status === 'interview') ? interviews : rejected;
 
     data.forEach(item => {
-        let statusColor = item.status === 'interview' ? 'py-2 bg-green-100 text-green-900' : 'bg-red-100 text-red-900';
+        let statusColor = item.status === 'interview' ? 'py-2 bg-green-100 text-green-900' : 'py-2 bg-red-100 text-red-900';
         let div = document.createElement('div');
         div.className = 'card space-y-4 shadow-xs rounded-md bg-white p-5 mb-5';
         div.innerHTML = `
@@ -178,6 +179,7 @@ function renderJob(status) {
         filterSection.appendChild(div);
     });
 }
+// dellet korar section
 
 function deleteJob(card) {
     const title = card.querySelector('.plant-name').innerText;
@@ -193,8 +195,6 @@ function deleteJob(card) {
         if(currentData.length === 0) showEmptyCard();
     }
 
-    // if (activeFilter !== 'all' && (interviews.length === 0 && rejected.length === 0)) showEmptyCard();
-    // else if (activeFilter !== 'all') renderJob(activeFilter);
 }
 
 function updateCounts() {

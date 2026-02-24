@@ -37,3 +37,11 @@ document.section.appendChild('newDiv')
 javascript এ Event Delegation হল এমন একটি সিস্টেম  যেখানে অনেকগুলা perent element একটি মাত্র ইভেন্ট লিসেনের ব্যবহার করে event bubbling এর উপরে নির্ভর করে কাজ করে 
 
 কম code লিখতে হয় যা ব্যাবহার করা সহজ
+
+
+### 5. What is the difference between preventDefault() and stopPropagation() methods?
+
+
+preventDefault() ব্রওজারের ডিফল্ট কাজগুলা বন্ধ করে 
+
+stopPropagation() ব্রওজারের ডিফল্ট কাজগুলা বন্ধ করে না

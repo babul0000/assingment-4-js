@@ -11,4 +11,12 @@
 
 4 no:  querySelectorAll = querySelectorAll ব্যবহার করলে HTML এ থাকা  একাধিক আইডি বা ক্লাসও সিলেক্ট করা যায়
 
+
+
  ### 2. How do you create and insert a new element into the DOM?
+
+const newDiv = document.createElement('div')
+newDiv.innerText = 'new div';
+document.section.appendChild('newDiv')
+
+এভাবে একটি DOM-এর ভিতরে নতুন div এলিমেন্ট তৈরি করা যায় এবং সেটাকে একটি section-এর ভিতরে যোগ করা যায়।
